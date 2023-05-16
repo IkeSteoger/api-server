@@ -1,5 +1,7 @@
 'use strict';
 
+//table top games are cool!
+
 module.exports = (sequelizeDatabase, DataTypes) => {
   return sequelizeDatabase.define('tabletopGames', {
     name: {

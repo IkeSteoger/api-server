@@ -33,5 +33,5 @@ router.delete('/tabletopGames/:id', async (req, res, next) => {
 
   res.status(200).send('That ID was deleted!');
 });
-
+// supposed to send the id back that is deleted
 module.exports = router;

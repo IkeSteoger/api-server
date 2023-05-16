@@ -1,5 +1,7 @@
 'use strict';
 
+//I like vide game
+
 module.exports = (sequelizeDatabase, DataTypes) => {
   return sequelizeDatabase.define('videoGames', {
     name: {
