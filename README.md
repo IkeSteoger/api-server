@@ -16,6 +16,11 @@ This is a basic Express server including use of SQL data models using best pract
 
 ### Collaborators
 
+Ryan Eastman  
+Reece Renniger  
+Tony Regalado  
+Ryan Gallaway
+
 ### Setup
 
 #### `.env` requirements (where applicable)
