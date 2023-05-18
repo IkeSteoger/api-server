@@ -5,6 +5,7 @@ const { sequelizeDatabase } = require('./src/models/index');
 const { start } = require('./src/server');
 
 const PORT = process.env.PORT || 3002;
+const POSTGRES_URI = process.env.DATABASE_URL;
 
 sequelizeDatabase.sync()
   .then(() => {
