@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { videoGamesModel } = require('../models/index');
+const { videoGamesModel, tabletopGamesModel } = require('../models/index');
 
 router.post('/videoGames', async (req, res, next) => {
   let videoGames = await videoGamesModel.create(req.body);
@@ -12,6 +12,12 @@ router.post('/videoGames', async (req, res, next) => {
 
 router.get('/videoGames', async (req, res, next) => {
   let videoGames = await videoGamesModel.findAll();
+
+  res.status(200).send(videoGames);
+});
+
+router.get('/videoGamesAndTabletop', async (req, res, next) => {
+  let videoGames = await videoGamesModel.findAll({include: {model: tabletopGamesModel}});
 
   res.status(200).send(videoGames);
 });
@@ -29,9 +35,13 @@ router.put('/videoGames/:id', async (req, res, next) => {
 });
 
 router.delete('/videoGames/:id', async (req, res, next) => {
-  await videoGamesModel.destroy({where: {id: req.params.id}});
-
-  res.status(200).send('That ID was deleted!');
+  try {
+    const deletedGame = await videoGamesModel.findAll({where: {id: req.params.id}});
+    await videoGamesModel.destroy({where: {id: req.params.id}});
+    res.status(200).send(deletedGame);
+  } catch(err) {
+    next(err);
+  }
 });
 
 module.exports = router;

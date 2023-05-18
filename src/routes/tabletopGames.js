@@ -29,9 +29,13 @@ router.put('/tabletopGames/:id', async (req, res, next) => {
 });
 
 router.delete('/tabletopGames/:id', async (req, res, next) => {
-  await tabletopGamesModel.destroy({where: {id: req.params.id}});
-
-  res.status(200).send('That ID was deleted!');
+  try {
+    const deletedGame = await tabletopGamesModel.findAll({where: {id: req.params.id}});
+    await tabletopGamesModel.destroy({where: {id: req.params.id}});
+    res.status(200).send(deletedGame);
+  } catch(err) {
+    next(err);
+  }
 });
 
 module.exports = router;
