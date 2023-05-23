@@ -39,7 +39,16 @@ Clone repo, `npm i`, then run `nodemon` in the terminal
 #### Routes
 
 - GET : `/` - server is live route
-- GET : `/videogames` - list all video games in DB
+- GET : `/videogames` - list all video games in DB  
+- GET : `/videogames/:id` - list video game by ID  
+- POST : `/videogames` - add to video games DB  
+- PUT : `/videogames/:id` - updates video game by ID  
+- DELETE : `/videogames/:id` - delete video game by ID
+- GET : `/tabletopgames` - list all tabletop games in DB  
+- GET : `/tabletopgames/:id` - list tabletop game by ID  
+- POST : `/tabletopgames` - add to tabletop games DB  
+- PUT : `/tabletopgames/:id` - updates tabletop game by ID  
+- DELETE : `/tabletopgames/:id` - delete tabletop games by ID
 
 #### Tests
 
@@ -47,4 +56,5 @@ To run tests, after running `npm i`, run the command `npm test`
 
 #### UML
 
+![UML image Lab04](./assets/lab04.png)
 ![UML image Lab03](./assets/uml.png)

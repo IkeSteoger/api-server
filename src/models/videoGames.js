@@ -8,7 +8,7 @@ module.exports = (sequelizeDatabase, DataTypes) => {
     },
     released: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
     genreOfGame: {
       type: DataTypes.STRING,

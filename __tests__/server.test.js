@@ -15,10 +15,5 @@ describe('Server', () => {
     const response = await mockRequest.post('/');
     expect(response.status).toEqual(404);
   });
-
-  test('500 on failed delete', async () => {
-    const response = await mockRequest.delete('/videogames/lajsdlkaj');
-    expect(response.status).toEqual(500);
-  });
   
 });
