@@ -17,7 +17,7 @@ afterAll( async () => {
 
 describe('VideoGames routes', () => {
   test('create route', async () => {
-    const response = await request.post('/videogames').send({name: 'hunt: showdown'});
+    const response = await request.post('/videogames').send({'name': 'hunt: showdown', 'released': '2001'});
 
     expect(response.status).toEqual(200);
     expect(response.body.name).toEqual('hunt: showdown');
@@ -34,20 +34,25 @@ describe('VideoGames routes', () => {
     const response = await request.get('/videogames/1');
 
     expect(response.status).toEqual(200);
-    expect(response.body[0].name).toEqual('hunt: showdown');
+    expect(response.body.name).toEqual('hunt: showdown');
   });
 
   test('update route', async () => {
     const response = await request.put('/videogames/1').send({name: 'hunt 2: bayou boogaloo'});
 
     expect(response.status).toEqual(200);
-    expect(response.body[0].name).toEqual('hunt 2: bayou boogaloo');
+    expect(response.body.name).toEqual('hunt 2: bayou boogaloo');
   });
 
   test('delete route', async () => {
     const response = await request.delete('/videogames/1');
-    console.log(response.body);
+    // console.log(response.body);
     expect(response.status).toEqual(200);
-    expect(response.body[0].name).toEqual('hunt 2: bayou boogaloo');
+    expect(response.body.name).toEqual('hunt 2: bayou boogaloo');
+  });
+
+  test('500 on failed delete', async () => {
+    const response = await request.delete('/videogames/lajsdlkaj');
+    expect(response.status).toEqual(500);
   });
 });
