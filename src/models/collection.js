@@ -22,7 +22,6 @@ class Collection {
         const singleRecord = await this.model.findByPk(id);
         return singleRecord;
       } else if(options){
-        console.log('else if', records);
         const records = await this.model.findAll(options);
         console.log('RECORDS', records);
         return records;
@@ -32,6 +31,7 @@ class Collection {
       }
     }catch(e){
       console.error('we have a modelInterface read error');
+      console.log(e.message);
       return e;
     }
   }
