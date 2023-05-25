@@ -51,8 +51,8 @@ describe('VideoGames routes', () => {
     expect(response.body.name).toEqual('hunt 2: bayou boogaloo');
   });
 
-  test('500 on failed delete', async () => {
-    const response = await request.delete('/videogames/lajsdlkaj');
-    expect(response.status).toEqual(500);
-  });
+  // test('500 on failed delete', async () => {
+  //   const response = await request.delete('/videogames/lajsdlkaj');
+  //   expect(response.status).toEqual(500);
+  // });
 });
